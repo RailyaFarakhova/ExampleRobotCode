@@ -5,6 +5,7 @@ import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.SampleConstants;
 
@@ -56,5 +57,11 @@ public class Subsystem extends SubsystemBase {
     // Returns the motor's rotation.
     public double getMotorRotation() {
         return m_motor.getPosition().getValueAsDouble();
+    }
+
+    @Override
+    public void periodic(){
+        // Example of displaying data in Elastic. This will be visible in the Network Tables.
+        SmartDashboard.putNumber("Magic Number", 100);
     }
 }
