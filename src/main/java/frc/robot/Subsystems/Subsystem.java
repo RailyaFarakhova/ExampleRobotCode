@@ -27,6 +27,7 @@ public class Subsystem extends SubsystemBase {
 
     }
 
+    // Sets the motor's initial rotation value to 0.
     public void setStartPosition() {
         m_motor.setPosition(0);
     }
@@ -39,15 +40,20 @@ public class Subsystem extends SubsystemBase {
         m_motor.setControl(m_dutyCycleOut.withOutput(speedPercentage)); 
     }
 
+    /**
+     * Sets the position of the motor using rotations.
+     * @param motorPosition 
+     */
     public void setPosition(double motorPosition) {
         m_motor.setControl(m_positionVoltage.withPosition(motorPosition));
     }
 
-    //Powers off motor.
+    // Powers off motor.
     public void motorOff() {
         m_motor.setControl(m_dutyCycleOut.withOutput(0));
     }
 
+    // Returns the motor's rotation.
     public double getMotorRotation() {
         return m_motor.getPosition().getValueAsDouble();
     }
